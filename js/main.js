@@ -1,5 +1,5 @@
-// Le nombre max
-const MAX_NUMBER = 500; 
+/*// Le nombre max
+const MAX_NUMBER = 100; 
 
 // Le nombre cherché
 const searchedNumber = Math.round(Math.random() * MAX_NUMBER);
@@ -35,4 +35,67 @@ if(enteredNumber){
 } else {
     // on affiche un message d'abandon
     alert('Vous abandonnez ? Dommage...');
+}*/
+
+
+function entierAleatoire(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+let arrayAttemps = [];
+
+function play() {
+    let entier = entierAleatoire(1, 100);
+    console.log(entier)
+    let attempts = 1;
+    let parti = 0;
+    let tableauFull = "";
+    let enteredNumber = parseInt(prompt('Quel est le nombre à trouver ?'));
+    while (enteredNumber !== entier) {
+        if (!enteredNumber) {
+            break;
+        }
+        if (enteredNumber < entier) {
+            enteredNumber = parseInt(prompt('C\'est plus'));
+        }
+        else {
+            enteredNumber = parseInt(prompt('C\'est moins'));
+        }
+        attempts += 1;
+    }
+    let game = {
+        nbSearch: entier,
+        nbEssaie: attempts,
+    };
+    if (enteredNumber) {
+
+        alert('Bravo ! C\'était bien ' + game.nbSearch + ' - Nombre d\'essais : ' + game.nbEssaie);
+    } else {
+        // on affiche un message d'abandon
+        alert('Vous abandonnez ? Dommage...');
+    }
+    arrayAttemps.push(game.nbEssaie);
+
+    if (window.confirm("tu veux rejouer ?")) {
+        play()
+
+    }
+    else {
+        for (i = 0; i < arrayAttemps.length; i++) {
+
+
+
+
+            parti++
+            tableauFull += " ton score est de : " + arrayAttemps[i] + " essaie, pour la partie " + parti + "\n";
+            //alert(" ton score est de : " + arrayAttemps[i] + " essaie, pour la partie " + parti);
+        }
+
+    }
+
+ return tableauFull;
+
+}
+
+play()
+let score = play();
+alert(score);
