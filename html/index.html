@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/S02E03-Fourchette-le-retour-Thomas-Laronde/Css/style.css">
     <title>Le juste prix</title>
 </head>
 <body>
+    <body>
+        <div class="container">
+            <h1>Jeu du Plus ou Moins</h1>
+            <input type="number" id="guessInput" placeholder="Entrez un nombre entre 1 et 100" />
+            <button id="submitGuess">Valider</button>
+            <button id="resetGame" style="display: none;">Rejouer</button>
+            <p id="result"></p>
+            <div id="history">
+                <h3>Historique des parties :</h3>
+                <ul id="attemptsList"></ul>
+            </div>
+        </div>
     <script src="../js/main.js"></script>
 </body>
 </html>
